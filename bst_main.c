@@ -64,7 +64,7 @@ int main(int argc, char **argv){
                         printf("INIZIALIZE THE LIST FIRST!\n");
                     } break;
             case 7: if(init){
-                        printf("\n the height of the tree is: %d\n", height(tree));
+                        printf("\nTHE HEIGHT OF THE TREE IS: %d\n", height(tree));
                     }else{
                         printf("INIZIALIZE THE LIST FIRST!\n");
                     } break;
