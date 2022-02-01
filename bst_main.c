@@ -16,7 +16,7 @@ int main(int argc, char **argv){
 		printf("\t- 4:  GET THE MAX KEY\n");
         printf("\t- 5:  GET THE MIN KEY\n");
         printf("\t- 6:  NODE INCLUDED?\n");
-        printf("\t- 7:  INORDER TREE WALK\n");
+        printf("\t- 7:  PREORDER TREE WALK\n");
         printf("---------------------------------------------\n");
         printf("\nCHOISE: "); scanf("%d", &choise);
 
@@ -53,7 +53,7 @@ int main(int argc, char **argv){
 						printf("INIZIALIZE THE LIST FIRST!\n");
 					} break;
             case 6: if(init){
-                        printf("\nINSERT THE KEY OF THE NODE YOU WANT TO SEARC: "); scanf("%d", &key);
+                        printf("\nINSERT THE KEY OF THE NODE YOU WANT TO SEARCH: "); scanf("%d", &key);
                     	if(include_node(tree, inizialize_element(inzialize_key(key)))){
                             printf("THE NODE IS IN THE TREE\n");
                         }else{

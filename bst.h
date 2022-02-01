@@ -22,11 +22,11 @@ bst *predecessor(bst *bst_x);
 
 void tree_insert(bst *bst_x, element *elem);
 
-bst *tree_delete(bst *bst_x, element *elem);
+bst *tree_delete(bst *bst_x, key *chiave);
 
 bst *get_root(bst *bst_x);
 
-bool include_node(bst *bst_x, element *elem);
+bool include_node(bst *bst_x, key *chiave);
 
 int compare_node(bst *node, bst *node2);
 

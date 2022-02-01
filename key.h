@@ -5,7 +5,7 @@ typedef struct key{
     int key;
 } key;
 
-key *inzialize_key(int chiave);
+key *inizialize_key(int chiave);
 
 void set_key(key *chiave, int new_value);
 

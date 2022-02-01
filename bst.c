@@ -29,23 +29,21 @@ void preorder_tree_walk(bst *bst_x, char *str){
             printf("node: %d %s %d\n", get_element_key(bst_x -> elem), str, par);
         }
         
-        inorder_tree_walk(bst_x -> left, "left child of");
-        inorder_tree_walk(bst_x -> right, "right child of");
+        preorder_tree_walk(bst_x -> left, "left child of");
+        preorder_tree_walk(bst_x -> right, "right child of");
     }
 }
 
 bst *tree_search(bst *bst_x, key *chiave){
     if(bst_x == NULL || get_node_key(bst_x) == chiave -> key){
         return bst_x;
-    }
-
-    if(compare_key((bst_x -> elem) -> chiave, chiave) == -1){
-        tree_search(bst_x -> right, chiave);
     }else{
-        tree_search(bst_x -> left, chiave);
+        if(compare_key((bst_x -> elem) -> chiave, chiave) == -1){
+            return tree_search(bst_x -> right, chiave);
+        }else{
+            return tree_search(bst_x -> left, chiave);
+        }
     }
-
-    return NULL;
 }
 
 bst *min(bst *bst_x){
@@ -128,13 +126,13 @@ void tree_insert(bst *bst_x, element *elem){
     }
 }
 
-bst *tree_delete(bst *bst_x, element *elem){
+bst *tree_delete(bst *bst_x, key *chiave){
     bst *succ;
 
-    if(compare_element(elem, bst_x -> elem) == 1){
-        tree_delete(bst_x -> right, elem);
-    }else if(compare_element(elem, bst_x -> elem) == -1){
-        tree_delete(bst_x -> left, elem);
+    if(compare_key(chiave, bst_x -> elem -> chiave) == 1){
+        tree_delete(bst_x -> right, chiave);
+    }else if(compare_key(chiave, bst_x -> elem -> chiave) == -1){
+        tree_delete(bst_x -> left, chiave);
     }else{
         if(!bst_x -> right && !bst_x -> left && !bst_x -> parent){
             return NULL;
@@ -163,7 +161,7 @@ bst *tree_delete(bst *bst_x, element *elem){
         }else{
             succ = successor(bst_x);
             bst_x -> elem = succ -> elem;
-            tree_delete(bst_x -> right, bst_x -> elem);
+            tree_delete(bst_x -> right, bst_x -> elem -> chiave);  
         }
     }
 
@@ -180,8 +178,8 @@ bst *get_root(bst *bst_x){
     return NULL;
 }
 
-bool include_node(bst *bst_x, element *elem){
-    bst *tmp = tree_search(bst_x, elem -> chiave);
+bool include_node(bst *bst_x, key *chiave){
+    bst *tmp = tree_search(bst_x, chiave);
 
     if(tmp){
         return true;

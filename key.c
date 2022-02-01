@@ -1,6 +1,6 @@
 #include "key.h"
 
-key *inzialize_key(int chiave){
+key *inizialize_key(int chiave){
     key *tmp = (key *) malloc(sizeof(key));
     tmp -> key = chiave;
 
