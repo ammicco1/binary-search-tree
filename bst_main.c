@@ -23,21 +23,21 @@ int main(int argc, char **argv){
         switch(choise){
             case 1: if(!init){
 						printf("\nINSERT THE FIRST KEY: "); scanf("%d", &key);
-                        tree = inizialize_bst(inizialize_element(inzialize_key(key)));
+                        tree = inizialize_bst(inizialize_element(inizialize_key(key)));
                         init = true; printf("DONE!\n");
                     }else{
                         printf("THE LIST ALREADY EXISTS!\n");
                     } break;
             case 2: if(init){
 						printf("\nINSERT THE NEW NODE'S KEY: "); scanf("%d", &key);
-                    	tree_insert(tree, inizialize_element(inzialize_key(key)));
+                    	tree_insert(tree, inizialize_element(inizialize_key(key)));
                     	printf("DONE!\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
 					} break;
             case 3: if(init){
 						printf("\nINSERT THE KEY OF THE NODE TO DELETE: "); scanf("%d", &key);
-                    	tree_delete(tree, inizialize_element(inzialize_key(key)));
+                    	tree_delete(tree, inizialize_element(inizialize_key(key)));
                     	printf("DONE!\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
@@ -54,7 +54,7 @@ int main(int argc, char **argv){
 					} break;
             case 6: if(init){
                         printf("\nINSERT THE KEY OF THE NODE YOU WANT TO SEARCH: "); scanf("%d", &key);
-                    	if(include_node(tree, inizialize_element(inzialize_key(key)))){
+                    	if(include_node(tree, inizialize_element(inizialize_key(key)))){
                             printf("THE NODE IS IN THE TREE\n");
                         }else{
                             printf("THE NODE ISN'T IN THE TREE\n");
