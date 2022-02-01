@@ -37,7 +37,7 @@ int main(int argc, char **argv){
 					} break;
             case 3: if(init){
 						printf("\nINSERT THE KEY OF THE NODE TO DELETE: "); scanf("%d", &key);
-                    	tree_delete(tree, inizialize_element(inizialize_key(key)));
+                    	tree_delete(tree, inizialize_key(key));
                     	printf("DONE!\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
@@ -54,7 +54,7 @@ int main(int argc, char **argv){
 					} break;
             case 6: if(init){
                         printf("\nINSERT THE KEY OF THE NODE YOU WANT TO SEARCH: "); scanf("%d", &key);
-                    	if(include_node(tree, inizialize_element(inizialize_key(key)))){
+                    	if(include_node(tree, inizialize_key(key))){
                             printf("THE NODE IS IN THE TREE\n");
                         }else{
                             printf("THE NODE ISN'T IN THE TREE\n");
@@ -64,7 +64,7 @@ int main(int argc, char **argv){
                     } break;
             case 7: if(init){
                         printf("\n");
-						inorder_tree_walk(tree, "root");
+						preorder_tree_walk(tree, "root");
                         printf("\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
