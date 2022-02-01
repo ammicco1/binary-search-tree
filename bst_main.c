@@ -30,14 +30,14 @@ int main(int argc, char **argv){
                     } break;
             case 2: if(init){
 						printf("\nINSERT THE NEW NODE'S KEY: "); scanf("%d", &key);
-                    	tree_insert(tree, inizialize_element(key));
+                    	tree_insert(tree, inizialize_element(inzialize_key(key)));
                     	printf("DONE!\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
 					} break;
             case 3: if(init){
 						printf("\nINSERT THE KEY OF THE NODE TO DELETE: "); scanf("%d", &key);
-                    	tree_delete(tree, inizialize_element(key));
+                    	tree_delete(tree, inizialize_element(inzialize_key(key)));
                     	printf("DONE!\n");
 					}else{
 						printf("INIZIALIZE THE LIST FIRST!\n");
@@ -54,10 +54,10 @@ int main(int argc, char **argv){
 					} break;
             case 6: if(init){
                         printf("\nINSERT THE KEY OF THE NODE YOU WANT TO SEARC: "); scanf("%d", &key);
-                    	if(include_node(tree, inizialize_element(key))){
-                            ptintf("THE NODE IS IN THE TREE\n");
+                    	if(include_node(tree, inizialize_element(inzialize_key(key)))){
+                            printf("THE NODE IS IN THE TREE\n");
                         }else{
-                            ptintf("THE NODE ISN'T IN THE TREE\n");
+                            printf("THE NODE ISN'T IN THE TREE\n");
                         }
                     }else{
                         printf("INIZIALIZE THE LIST FIRST!\n");

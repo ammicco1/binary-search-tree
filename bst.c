@@ -44,6 +44,8 @@ bst *tree_search(bst *bst_x, key *chiave){
     }else{
         tree_search(bst_x -> left, chiave);
     }
+
+    return NULL;
 }
 
 bst *min(bst *bst_x){
@@ -127,7 +129,7 @@ void tree_insert(bst *bst_x, element *elem){
 }
 
 bst *tree_delete(bst *bst_x, element *elem){
-    bst *succ, *to_free, *root;
+    bst *succ;
 
     if(compare_element(elem, bst_x -> elem) == 1){
         tree_delete(bst_x -> right, elem);
@@ -174,6 +176,8 @@ bst *get_root(bst *bst_x){
     }else{
         return bst_x;
     }
+
+    return NULL;
 }
 
 bool include_node(bst *bst_x, element *elem){
