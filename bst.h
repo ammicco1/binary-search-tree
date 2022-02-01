@@ -8,7 +8,7 @@ typedef struct bst{
 
 bst *inizialize_bst(element *elem);
 
-void inorder_tree_walk(bst *bst_x, char *str);
+void preorder_tree_walk(bst *bst_x, char *str);
 
 bst *tree_search(bst *bst_x, key *chiave);
 

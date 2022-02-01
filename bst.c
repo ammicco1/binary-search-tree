@@ -12,7 +12,7 @@ bst *inizialize_bst(element *elem){
     return tmp;
 }
 
-void inorder_tree_walk(bst *bst_x, char *str){
+void preorder_tree_walk(bst *bst_x, char *str){
     int par; 
     bst *tmp; 
     if(bst_x != NULL){
