@@ -31,3 +31,5 @@ bool include_node(bst *bst_x, key *chiave);
 int compare_node(bst *node, bst *node2);
 
 int get_node_key(bst *node);
+
+int height(bst *bst_x);

@@ -16,7 +16,8 @@ int main(int argc, char **argv){
 		printf("\t- 4:  GET THE MAX KEY\n");
         printf("\t- 5:  GET THE MIN KEY\n");
         printf("\t- 6:  NODE INCLUDED?\n");
-        printf("\t- 7:  PREORDER TREE WALK\n");
+        printf("\t- 7:  GET TREE'S HEIGHT\n");
+        printf("\t- 8:  PREORDER TREE WALK\n");
         printf("---------------------------------------------\n");
         printf("\nCHOISE: "); scanf("%d", &choise);
 
@@ -63,6 +64,11 @@ int main(int argc, char **argv){
                         printf("INIZIALIZE THE LIST FIRST!\n");
                     } break;
             case 7: if(init){
+                        printf("\n the height of the tree is: %d\n", height(tree));
+                    }else{
+                        printf("INIZIALIZE THE LIST FIRST!\n");
+                    } break;
+            case 8: if(init){
                         printf("\n");
 						preorder_tree_walk(tree, "root");
                         printf("\n");

@@ -195,3 +195,16 @@ int compare_node(bst *node, bst *node2){
 int get_node_key(bst *node){
     return get_element_key(node -> elem);
 }
+
+int height(bst *bst_x){
+    int rh = 0, lh = 0;
+
+    if(!bst_x){
+        return 0;
+    }else{
+        lh = height(bst_x -> left);
+        rh = height(bst_x -> right);
+
+        return lh > rh ? lh + 1 : rh + 1;
+    }
+}
