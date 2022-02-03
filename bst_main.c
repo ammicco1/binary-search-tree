@@ -24,6 +24,7 @@ int main(int argc, char **argv){
         printf("\t- 8:  PREORDER TREE WALK\n");
         printf("\t- 9:  SAVE THE CURRENT TREE\n");
         printf("\t- 10: OPEN A SAVED TREE\n");
+        printf("\t- 11: DESTROY THE BST\n");
         printf("---------------------------------------------\n");
         printf("\nCHOISE: "); scanf("%d", &choise);
 
@@ -103,7 +104,7 @@ int main(int argc, char **argv){
                     } break;
 
             case 10: if(!init){
-                        printf("INSERT THE PATH OF YOUR BST'S FILE :");
+                        printf("INSERT THE PATH OF YOUR BST'S FILE: ");
                         scanf(" %[^\n]", path);
                         fp = fopen(path, "r");
                         tree = open_tree(fp);
