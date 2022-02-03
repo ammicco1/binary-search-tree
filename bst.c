@@ -208,3 +208,89 @@ int height(bst *bst_x){
         return lh > rh ? lh + 1 : rh + 1;
     }
 }
+
+/*
+    this function saves a tree in a file. every node is rappresented by 3 number: 
+     - node key.
+     - parent key. the root has -1.
+     - an int that represent if the node is a left child (-1) or a right child (1). the root has 0.
+
+    in this case the element of a node is the key, so i save only the key.
+
+
+    the firt time i call the function i call it with "w" as mod, in this way i overwrite old files, the recursive calls are invocated with "a",
+    and also i call the function with "left_right" = 0.
+*/
+
+void save_tree(bst *bst_x, char *file_path, char *mod, int left_right){
+    FILE *fp = fopen(file_path, mod);
+
+    if(bst_x -> parent){
+        fprintf(fp, "%d %d %d\n", get_node_key(bst_x), get_node_key(bst_x -> parent), left_right);
+    }else{
+        fprintf(fp, "%d -1 0\n", get_node_key(bst_x));
+    }
+
+    if(bst_x -> right && bst_x -> left){
+        save_tree(bst_x -> left, file_path, "a", -1);
+        save_tree(bst_x -> right, file_path, "a", 1);
+    }else if(bst_x -> right && !bst_x -> left){
+        save_tree(bst_x -> right, file_path, "a", 1);
+    }else if(bst_x -> left && !bst_x -> right){
+        save_tree(bst_x -> left, file_path, "a", -1);
+    }
+}
+
+/*
+    this function open a bst from a file where you have previously saved an old bst with the function "save_tree"
+*/
+
+bst *open_tree(char *file_path){
+    int n, node, parent, lr, i = 0;
+    int *keys, *parents, *left_right;
+    char ch;
+    FILE *fp = fopen(file_path, "r");
+    bst *tree, *tmp, *node_tmp = (bst *) malloc(sizeof(bst));
+
+    if(!fp){
+        return NULL;
+    }
+
+    while(!feof(fp)){
+        ch = fgetc(fp);
+        if(ch == '\n'){
+            n++;
+        }
+    }
+
+    keys = malloc(sizeof(int) * n);
+    parents = malloc(sizeof(int) * n);
+    left_right = malloc(sizeof(int) * n);
+
+    rewind(fp);
+
+    while(!feof(fp)){
+        fscanf(fp, "%d %d %d", &node, &parent, &lr);
+        keys[i] = node;
+        parents[i] = parent;
+        left_right[i] = lr;
+        i++;
+    }
+
+    i = 0;
+
+    do{
+        if(parents[i] == -1){
+            tree = inizialize_bst(inizialize_element(inizialize_key(keys[i])));
+        }
+        i++;
+    }while(parents[i] != -1);
+
+    for(i = 0; i < n; i++){
+        if(parents[i] != -1){
+            tree_insert(tree, inizialize_element(inizialize_key(keys[i])));
+        }
+    }
+
+    return tree;
+}

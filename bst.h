@@ -33,3 +33,7 @@ int compare_node(bst *node, bst *node2);
 int get_node_key(bst *node);
 
 int height(bst *bst_x);
+
+void save_tree(bst *bst_x, char *file_path, char *mod, int left_right);
+
+bst *open_tree(char *file_path);
