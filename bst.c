@@ -250,7 +250,7 @@ bst *open_tree(char *file_path){
     int *keys, *parents, *left_right;
     char ch;
     FILE *fp = fopen(file_path, "r");
-    bst *tree, *tmp, *node_tmp = (bst *) malloc(sizeof(bst));
+    bst *tree;
 
     if(!fp){
         return NULL;
