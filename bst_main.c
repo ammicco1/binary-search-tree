@@ -101,8 +101,12 @@ int main(int argc, char **argv){
                         printf("INSERT THE PATH OF YOUR BST'S FILE :");
                         scanf(" %[^\n]", path);
                         tree = open_tree(path);
-                        init = true;
-                        printf("DONE!");
+                        if(tree){
+                            init = true;
+                            printf("DONE!\n");
+                        }else{
+                            printf("FILE ERROR!\n");
+                        }
                     }else{
                         printf("DESTROY THE CURRENT BST FIRST");
                     } break;
