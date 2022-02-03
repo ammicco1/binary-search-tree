@@ -283,6 +283,7 @@ bst *open_tree(FILE *fp){
     do{
         if(parents[i] == -1){
             tree = inizialize_bst(inizialize_element(inizialize_key(keys[i])));
+            break;
         }
         i++;
     }while(parents[i] != -1);
