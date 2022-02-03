@@ -1,4 +1,5 @@
 #include "./element.h"
+#include <stdio.h>
 
 typedef struct bst{
     struct bst *parent;
@@ -8,32 +9,34 @@ typedef struct bst{
 
 bst *inizialize_bst(element *elem);
 
-void preorder_tree_walk(bst *bst_x, char *str);
+void preorder_tree_walk(bst *tree, char *str);
 
-bst *tree_search(bst *bst_x, key *chiave);
+bst *tree_search(bst *tree, key *chiave);
 
-bst *max(bst *bst_x);
+bst *max(bst *tree);
 
-bst *min(bst *bst_x);
+bst *min(bst *tree);
 
-bst *successor(bst *bst_x);
+bst *successor(bst *tree);
 
-bst *predecessor(bst *bst_x);
+bst *predecessor(bst *tree);
 
-void tree_insert(bst *bst_x, element *elem);
+void tree_insert(bst *tree, element *elem);
 
-bst *tree_delete(bst *bst_x, key *chiave);
+bst *tree_delete(bst *tree, key *chiave);
 
-bst *get_root(bst *bst_x);
+bst *get_root(bst *tree);
 
-bool include_node(bst *bst_x, key *chiave);
+bool include_node(bst *tree, key *chiave);
 
 int compare_node(bst *node, bst *node2);
 
 int get_node_key(bst *node);
 
-int height(bst *bst_x);
+int height(bst *tree);
 
-void save_tree(bst *bst_x, char *file_path, char *mod, int left_right);
+void save_tree(bst *tree, FILE *fp, int left_right);
 
-bst *open_tree(char *file_path);
+bst *open_tree(FILE *fp);
+
+void destroy_bst(bst *tree);

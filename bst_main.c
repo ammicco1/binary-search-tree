@@ -9,6 +9,7 @@ int main(int argc, char **argv){
     char path[__MAX_PATH__];
     bool init = false;
     bst *tree;
+    FILE *fp;
 
     while(1){
         printf("\n---------------------------------------------\n");
@@ -90,8 +91,12 @@ int main(int argc, char **argv){
 
             case 9: if(init){
                         printf("INSERT THE NAME OF THE FILE FOR YOUR BST: ");
-                        scanf(" %[^\n]", path); 
-                        save_tree(tree, path, "w", 0);
+                        scanf(" %[^\n]", path);
+                        fp = fopen(path, "w");
+                        fclose(fp);
+                        fp = fopen(path, "a");
+                        save_tree(tree, fp, 0);
+                        fclose(fp);
                         printf("DONE!\n");
                     }else{
                         printf("INIZIALIZE A BST FIRST!\n");
@@ -100,7 +105,9 @@ int main(int argc, char **argv){
             case 10: if(!init){
                         printf("INSERT THE PATH OF YOUR BST'S FILE :");
                         scanf(" %[^\n]", path);
-                        tree = open_tree(path);
+                        fp = fopen(path, "r");
+                        tree = open_tree(fp);
+                        fclose(fp);
                         if(tree){
                             init = true;
                             printf("DONE!\n");
@@ -109,6 +116,14 @@ int main(int argc, char **argv){
                         }
                     }else{
                         printf("DESTROY THE CURRENT BST FIRST");
+                    } break;
+
+            case 11: if(init){
+                        destroy_bst(tree);
+                        init = false;
+                        printf("DONE!\n");
+                    }else{
+                        printf("INIZIALIZE A BST FIRST!\n");
                     } break;
 
             default: printf("WRONG CHOISE!\n");
