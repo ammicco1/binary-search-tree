@@ -92,7 +92,7 @@ int main(int argc, char **argv){
                         printf("INSERT THE NAME OF THE FILE FOR YOUR BST: ");
                         scanf(" %[^\n]", path); 
                         save_tree(tree, path, "w", 0);
-                        printf("DONE\n");
+                        printf("DONE!\n");
                     }else{
                         printf("INIZIALIZE A BST FIRST!\n");
                     } break;

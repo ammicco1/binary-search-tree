@@ -225,19 +225,23 @@ int height(bst *bst_x){
 void save_tree(bst *bst_x, char *file_path, char *mod, int left_right){
     FILE *fp = fopen(file_path, mod);
 
-    if(bst_x -> parent){
-        fprintf(fp, "%d %d %d\n", get_node_key(bst_x), get_node_key(bst_x -> parent), left_right);
-    }else{
-        fprintf(fp, "%d -1 0\n", get_node_key(bst_x));
-    }
+    if(fp){
+        if(bst_x -> parent){
+            fprintf(fp, "%d %d %d\n", get_node_key(bst_x), get_node_key(bst_x -> parent), left_right);
+        }else{
+            fprintf(fp, "%d -1 0\n", get_node_key(bst_x));
+        }
 
-    if(bst_x -> right && bst_x -> left){
-        save_tree(bst_x -> left, file_path, "a", -1);
-        save_tree(bst_x -> right, file_path, "a", 1);
-    }else if(bst_x -> right && !bst_x -> left){
-        save_tree(bst_x -> right, file_path, "a", 1);
-    }else if(bst_x -> left && !bst_x -> right){
-        save_tree(bst_x -> left, file_path, "a", -1);
+        if(bst_x -> right && bst_x -> left){
+            save_tree(bst_x -> left, file_path, "a", -1);
+            save_tree(bst_x -> right, file_path, "a", 1);
+        }else if(bst_x -> right && !bst_x -> left){
+            save_tree(bst_x -> right, file_path, "a", 1);
+        }else if(bst_x -> left && !bst_x -> right){
+            save_tree(bst_x -> left, file_path, "a", -1);
+        }
+    }else{
+        printf("FILE ERROR!");
     }
 }
 
