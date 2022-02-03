@@ -248,7 +248,7 @@ void save_tree(bst *tree, FILE *fp, int left_right){
 */
 
 bst *open_tree(FILE *fp){
-    int n, node, parent, lr, i = 0;
+    int n = 0, node, parent, lr, i = 0;
     int *keys, *parents, *left_right;
     char ch;
     bst *tree;
@@ -277,7 +277,7 @@ bst *open_tree(FILE *fp){
         left_right[i] = lr;
         i++;
     }
-    
+
     for(i = 0; i < n; i++){
         if(parents[i] == -1){
             tree = inizialize_bst(inizialize_element(inizialize_key(keys[i])));
