@@ -280,13 +280,12 @@ bst *open_tree(FILE *fp){
 
     i = 0;
 
-    do{
+    for(i = 0; i < n; i++){
         if(parents[i] == -1){
             tree = inizialize_bst(inizialize_element(inizialize_key(keys[i])));
             break;
         }
-        i++;
-    }while(parents[i] != -1);
+    }
 
     for(i = 0; i < n; i++){
         if(parents[i] != -1){
