@@ -297,7 +297,6 @@ bst *open_tree(FILE *fp){
 }
 
 void destroy_bst(bst *tree){
-    int par; 
     bst *tmp_l, *tmp_r; 
     if(tree != NULL){
         tmp_l = tree -> left; 
