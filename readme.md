@@ -1,33 +1,37 @@
-HERE'S AN IMPLEMENTATION OF A BINARY SEARCH TREE. 
-THE BST CONTAINS: 
- - AN ELEMENT THAT CONTAINS A KEY (IN THIS CASE AN INT), AND CAN CONTAINS OTHER INFORMATION.
- - POINTERS TO:
-    - LEFT CHILD
-    - RIGHT CHILD 
-    - PARENT
+# Binary Search Tree
 
-THE LIST'S HAS THE ESSENTIAL FUNCTIONS LIKE:
- - INZIALIZE BST
- - ADD A NEW NODE
- - DELETE NODE
- - INCLUDE AN ELEMENT
- - FIND THE MAX / MIN
- - FIND SUCCESSOR / PREDECESSOR
- - GET THE ROOT
- - SEARCH A NODE
- - PREORDER TREE WALK
+Simple C implementation of a binary search tree. 
+The tree is defined as a struct of the type: 
+```c
+struct bst{
+    struct bst *parent;
+    struct bst *left;
+    struct bst *right;
 
-WITH THE BST_MAIN TEST PROGRAM YOU CAN TEST ALL THE FUNCTIONS AND AFTER THAT YOU CAN MODIFY THE CODE OF KEY, ELEMENT AND LINKED_LIST TO CREATE THE BST THAT YOU WILL SERVE
-
-IF YOU USE LINUX USE THE MAKEFILE, IF YOU USE WINDOWS:
- - PASTE THEESE COMMANDS IN CMD TO COMPILE:
-```sh
-    - gcc -Wall -ansi -pedantic -c key.c element.c bst.c bst_main.c
-    - gcc -Wall -ansi -pedantic -o bst_main.exe key.o element.o bst.o bst_main.o
+    int key; 
+    void *value;
+} 
 ```
 
-- AND THEESE TO CLEAN:
-```sh
-    - del *.o 
-    - del *.exe
+Where: 
+ - parent is a pointer to the parent node
+ - left is a pointer to the left child
+ - right is a pointer to the right child 
+ - key is an integer value
+ - value can be everything. In main.c it can be a string
+
+There are 4 basic operation: 
+ - initialize, that create the bst
+ - insert, to insert a new node
+ - delete, to delete a node by key
+ - search, to search a node by key 
+
+Try it with: 
+```bash
+$ make 
+$ ./main
 ```
+
+Or include it in your projects. 
+
+Enjoy :) 

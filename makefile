@@ -1,21 +1,11 @@
-FLAGS = -Wall -ansi -pedantic
-OBJS = bst_main.o key.o element.o bst.o
-EXEC = bst_main
+main: main.o bst.o
+	gcc -o main main.o bst.o -g
 
-$(EXEC): $(OBJS)
-	gcc $(FLAGS) -o $(EXEC) $(OBJS)
-
-$(EXEC).o: $(EXEC).c
-	gcc $(FLAGS) -c $(EXEC).c
+main.o: main.c
+	gcc -c main.c -o main.o -g
 
 bst.o: bst.c
-	gcc $(FLAGS) -c bst.c
+	gcc -c bst.c -o bst.o -g
 
-element.o: element.c
-	gcc $(FLAGS) -c element.c
-
-key.o: key.c
-	gcc $(FLAGS) -c key.c
-
-clean: 
-	rm -f *.o $(EXEC) $(OBJS)
+clean:
+	rm *.o main
