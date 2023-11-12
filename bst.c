@@ -16,7 +16,7 @@ struct bst *bst_initialize(int key, void *value, size_t value_len){
 }
 
 struct bst *bst_search(struct bst *root, int key){
-    if(root == NULL || root -> key == key){
+    if(!root || root -> key == key){
         return root;
     }else{
         if(root -> key > key){
@@ -51,7 +51,7 @@ int bst_insert(struct bst *root, int key, void *value, size_t value_len){
 
     new -> parent = tmp;
 
-    if(tmp == NULL){
+    if(!tmp){
         root = new;
 
         return 0;
