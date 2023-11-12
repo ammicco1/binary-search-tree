@@ -14,7 +14,7 @@ int main(int argc, char **argv){
     printf("First value (str): ");
     scanf(" %s", buff);
 
-    my_bst = bst_initialize(key, buff, strlen(buff) + 1);
+    my_bst = bst_initialize(key, buff, sizeof(char) * strlen(buff) + 1);
 
     while(1){
         printf("\nSelect an action:\n - 1: Insert a node\n - 2: Delete a node\n - 3: Search a node\n\n");
@@ -33,7 +33,7 @@ int main(int argc, char **argv){
                     break;
                 }
                 
-                if(bst_insert(my_bst, key, buff, strlen(buff) + 1) == 0){
+                if(bst_insert(my_bst, key, buff, sizeof(char) * strlen(buff) + 1) == 0){
                     printf("\nInsert ok\n");
                 }else{
                     fprintf(stderr, "\nInsert error\n");

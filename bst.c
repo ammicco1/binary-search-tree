@@ -9,7 +9,7 @@ struct bst *bst_initialize(int key, void *value, size_t value_len){
 
     tree -> key = key;
 
-    tree -> value = malloc(sizeof(void *) * value_len);
+    tree -> value = malloc(value_len);
     memcpy(tree -> value, value, value_len);
 
     return tree; 
@@ -32,7 +32,7 @@ int bst_insert(struct bst *root, int key, void *value, size_t value_len){
     struct bst *new = (struct bst *) malloc(sizeof(struct bst));
 
     new -> key = key; /* insert new node values */
-    new -> value = malloc(sizeof(void *) * value_len);
+    new -> value = malloc(value_len);
     memcpy(new -> value, value, value_len);
     new -> left = NULL;
     new -> right = NULL;

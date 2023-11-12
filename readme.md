@@ -26,6 +26,8 @@ There are 4 basic operation:
  - delete, to delete a node by key
  - search, to search a node by key 
 
+In this example you can not insert different nodes with the same key. 
+
 Try it with: 
 ```bash
 $ make 
